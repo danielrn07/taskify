@@ -1,3 +1,8 @@
+@import 'normalize.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +16,50 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --breakpoints-sm: 576px;
+  --breakpoints-md: 768px;
+  --breakpoints-lg: 992px;
+  --breakpoints-xl: 1200px;
+
+  --screen-sm: 540px;
+  --screen-md: 720px;
+  --screen-lg: 960px;
+  --screen-xl: 1140px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+}
+
+/* SM */
+@media screen and (min-width: var(--breakpoints-sm)) {
+  .container {
+    max-width: var(--screen-sm);
+  }
+}
+
+/* MD */
+@media screen and (min-width: var(--breakpoints-md)) {
+  .container {
+    max-width: var(--screen-md);
+  }
+}
+
+/* LG */
+@media screen and (min-width: var(--breakpoints-lg)) {
+  .container {
+    max-width: var(--screen-lg);
+  }
+}
+
+/* XL */
+@media screen and (min-width: var(--breakpoints-xl)) {
+  .container {
+    max-width: var(--screen-xl);
+  }
 }
 
 body {
@@ -19,6 +68,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
