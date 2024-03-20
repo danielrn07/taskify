@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react'
 import './App.css'
 import Form from './components/Form'
+import TaskList from './components/Tasks'
 
 class App extends Component {
   constructor(props) {
@@ -30,10 +31,11 @@ class App extends Component {
       })
     }
 
-    console.log(tasks)
+
+    this.handleReset()
   }
 
-  handleReset = ({ input }) => {
+  handleReset = () => {
     this.setState({
       newTask: ''
     })
@@ -58,6 +60,7 @@ class App extends Component {
           newTask={newTask}
           inputRef={this.inputRef}
         />
+        <TaskList tasks={tasks}/>
       </>
     )
   }

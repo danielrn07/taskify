@@ -923,8 +923,8 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.fixed {
-  position: fixed;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
@@ -935,24 +935,20 @@ video {
   height: 2.5rem;
 }
 
-.h-40 {
-  height: 10rem;
+.h-96 {
+  height: 24rem;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
-.h-1 {
-  height: 0.25rem;
-}
-
-.h-80 {
-  height: 20rem;
+.h-full {
+  height: 100%;
 }
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .flex-col {
@@ -967,8 +963,21 @@ video {
   justify-content: center;
 }
 
-.rounded {
-  border-radius: 0.25rem;
+.justify-between {
+  justify-content: space-between;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.rounded-b {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }
 
 .rounded-l {
@@ -981,14 +990,31 @@ video {
   border-bottom-right-radius: 0.25rem;
 }
 
+.rounded-t {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-gray-500\/30 {
+  border-color: rgb(107 114 128 / 0.3);
+}
+
+.bg-neutral-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+}
+
 .bg-rose-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(225 29 72 / var(--tw-bg-opacity));
 }
 
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-4 {
@@ -1016,6 +1042,18 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 :root {
@@ -1086,6 +1124,16 @@ body {
   outline: none;
 }
 
+.item-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.item-list::-webkit-scrollbar-thumb {
+  background-color: #e11d48;
+  border-radius: 5px;
+  border: 2px solid #171717;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -1093,9 +1141,8 @@ body {
   }
 }
 
-.hover\:bg-rose-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(159 18 57 / var(--tw-bg-opacity));
+.hover\:bg-gray-100\/5:hover {
+  background-color: rgb(243 244 246 / 0.05);
 }
 
 .hover\:bg-rose-700:hover {
