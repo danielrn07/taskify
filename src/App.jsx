@@ -21,18 +21,25 @@ class App extends Component {
     let { newTask } = this.state
     newTask = newTask.trim()
 
-    if (tasks.indexOf(newTask) !== -1) return
+    const taskExists = tasks.some((task) => task.text === newTask)
+
+    if (taskExists) return
+
+    const newTaskObject = {
+      text: newTask,
+      isChecked: false,
+    }
 
     const newTasks = [...tasks]
 
     if (index === -1) {
       this.setState({
-        tasks: [...newTasks, newTask],
+        tasks: [...newTasks, newTaskObject],
       })
     }
 
     if (index !== -1) {
-      newTasks[index] = newTask
+      newTasks[index].text = newTask
 
       this.setState({
         tasks: [...newTasks],
@@ -57,8 +64,10 @@ class App extends Component {
 
     this.setState({
       index,
-      newTask: tasks[index],
+      newTask: tasks[index].text,
     })
+
+    this.inputRef.current.focus()
   }
 
   handleReset = () => {
@@ -72,6 +81,18 @@ class App extends Component {
   handleChange = (e) => {
     this.setState({
       newTask: e.target.value,
+    })
+  }
+
+  handleChecked = (e, index) => {
+    const { tasks } = this.state
+    const newTasks = [...tasks]
+
+    newTasks[index].isChecked = !tasks[index].isChecked
+
+    this.setState({
+      tasks: [...newTasks],
+      index: -1,
     })
   }
 
@@ -90,6 +111,7 @@ class App extends Component {
           tasks={tasks}
           handleDelete={this.handleDelete}
           handleEdit={this.handleEdit}
+          handleChecked={this.handleChecked}
         />
       </>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaXmark, FaPen } from 'react-icons/fa6'
 
-const TaskList = ({ tasks, handleDelete, handleEdit }) => {
+const TaskList = ({ tasks, handleDelete, handleEdit, handleChecked }) => {
   return (
     <div className="flex flex-col h-96 mt-8">
       <ul className="item-list flex flex-col bg-neutral-900 h-full overflow-auto rounded-t">
@@ -10,7 +10,10 @@ const TaskList = ({ tasks, handleDelete, handleEdit }) => {
             key={index}
             className="flex justify-between items-center p-4 transition ease-in duration-300 hover:bg-gray-100/5"
           >
-            {task}
+            <div className="flex gap-2 items-center grow">
+              <input type="checkbox" checked={task.isChecked} onChange={(e) => handleChecked(e, index)} className='outline-none' />
+              {task.text}
+            </div>
             <span className="flex items-center gap-2">
               <FaPen
                 size={10}
