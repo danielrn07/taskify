@@ -76,7 +76,7 @@ body {
 }
 
 .item-list::-webkit-scrollbar-thumb {
-  background-color: #e11d48;
+  background-color: #737373;
   border-radius: 5px;
   border: 2px solid #171717;
 }

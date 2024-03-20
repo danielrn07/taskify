@@ -1,7 +1,7 @@
 import React from 'react'
-// import { FaXmark, FaPen } from "react-icons/fa6";
+import { FaXmark, FaPen } from 'react-icons/fa6'
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, handleDelete }) => {
   return (
     <div className="flex flex-col h-96 mt-8">
       <ul className="item-list flex flex-col bg-neutral-900 h-full overflow-auto rounded-t">
@@ -11,6 +11,13 @@ const TaskList = ({ tasks }) => {
             className="flex justify-between items-center p-4 transition ease-in duration-300 hover:bg-gray-100/5"
           >
             {task}
+            <span>
+              <FaXmark
+                color='#E11D48'
+                onClick={(e) => handleDelete(e, index)}
+                className="cursor-pointer"
+              />
+            </span>
           </li>
         ))}
       </ul>

@@ -5,7 +5,7 @@ import TaskList from './components/Tasks'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.inputRef = React.createRef()
   }
   state = {
@@ -31,13 +31,21 @@ class App extends Component {
       })
     }
 
-
     this.handleReset()
+  }
+
+  handleDelete = (e, index) => {
+    const { tasks } = this.state
+    const updatedTasks = tasks.toSpliced(index, 1)
+
+    this.setState({
+      tasks: [...updatedTasks],
+    })
   }
 
   handleReset = () => {
     this.setState({
-      newTask: ''
+      newTask: '',
     })
 
     this.inputRef.current.focus()
@@ -56,11 +64,11 @@ class App extends Component {
       <>
         <Form
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}          
+          handleChange={this.handleChange}
           newTask={newTask}
           inputRef={this.inputRef}
         />
-        <TaskList tasks={tasks}/>
+        <TaskList tasks={tasks} handleDelete={this.handleDelete} />
       </>
     )
   }
