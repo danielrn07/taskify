@@ -31,6 +31,15 @@ class App extends Component {
       })
     }
 
+    if (index !== -1) {
+      newTasks[index] = newTask
+
+      this.setState({
+        tasks: [...newTasks],
+        index: -1,
+      })
+    }
+
     this.handleReset()
   }
 
@@ -40,6 +49,15 @@ class App extends Component {
 
     this.setState({
       tasks: [...updatedTasks],
+    })
+  }
+
+  handleEdit = (e, index) => {
+    const { tasks } = this.state
+
+    this.setState({
+      index,
+      newTask: tasks[index],
     })
   }
 
@@ -68,7 +86,11 @@ class App extends Component {
           newTask={newTask}
           inputRef={this.inputRef}
         />
-        <TaskList tasks={tasks} handleDelete={this.handleDelete} />
+        <TaskList
+          tasks={tasks}
+          handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
+        />
       </>
     )
   }

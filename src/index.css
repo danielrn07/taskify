@@ -71,6 +71,11 @@ body {
   outline: none;
 }
 
+::selection {
+  background-color: #e11d48;
+  color: white;
+}
+
 .item-list::-webkit-scrollbar {
   width: 8px;
 }

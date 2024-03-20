@@ -971,6 +971,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .self-end {
   align-self: flex-end;
 }
@@ -1122,6 +1126,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
   outline: none;
+}
+
+::-moz-selection {
+  background-color: #e11d48;
+  color: white;
+}
+
+::selection {
+  background-color: #e11d48;
+  color: white;
 }
 
 .item-list::-webkit-scrollbar {
