@@ -1,0 +1,2 @@
+// Corrigir
+- Ao editar clicar em editar e remover a tarefa antes de salvar a edição eu perco a referência do ID. Se eu definir o ID como -1 e removo uma tarefa diferente da que estava sendo editada, ao salvar uma nova tarefa é criada e a atualização não acontece.

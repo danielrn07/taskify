@@ -1,20 +1,20 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa6'
 
-const Form = ({ handleSubmit, handleChange, newTask, inputRef }) => {
+const Form = (props) => {
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={props.handleSubmit}
       action="#"
-      className="flex justify-center items-center"
+      className="flex w-96 justify-center items-center"
     >
       <input
         type="text"
-        onChange={handleChange}
-        value={newTask}
-        ref={inputRef}
+        onChange={props.handleChange}
+        value={props.newTask}
+        ref={props.inputRef}
         placeholder="New task"
-        className="h-10 px-5 text-xl rounded-l outline-none"
+        className="h-10 px-2 w-full text-lg rounded-l outline-none"
       />
       <button
         type="submit"

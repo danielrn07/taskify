@@ -1,7 +1,10 @@
-import React, { useState, Component } from 'react'
+import React, { Component } from 'react'
 import './App.css'
 import Form from './components/Form'
 import TaskList from './components/Tasks'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { FaCircleInfo } from 'react-icons/fa6'
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +25,20 @@ class App extends Component {
     newTask = newTask.trim()
 
     const taskExists = tasks.some((task) => task.text === newTask)
+    const taskEmpty = newTask === ''
 
-    if (taskExists) return
+    if (taskExists) {
+      toast.error('Essa tarefa já existe.', {
+        icon: <FaCircleInfo size={24} />,
+      })
+      return
+    }
+    if (taskEmpty) {
+      toast.error('A tarefa não pode estar vazia.', {
+        icon: <FaCircleInfo size={24} />,
+      })
+      return
+    }
 
     const newTaskObject = {
       text: newTask,
@@ -49,7 +64,7 @@ class App extends Component {
 
     this.handleReset()
   }
-
+  
   handleDelete = (e, index) => {
     const { tasks } = this.state
     const updatedTasks = tasks.toSpliced(index, 1)
@@ -96,22 +111,65 @@ class App extends Component {
     })
   }
 
+  handleCheckedAll = () => {
+    const { tasks } = this.state
+
+    const checkedAll = tasks.map((task) => {
+      return {
+        text: task.text,
+        isChecked: true,
+      }
+    })
+
+    this.setState({
+      tasks: [...checkedAll],
+    })
+  }
+
   render() {
     const { newTask, tasks } = this.state
 
+    const contextClass = {
+      success: 'bg-neutral-900',
+      error: 'bg-neutral-900',
+      info: 'bg-neutral-900',
+      warning: 'bg-neutral-900',
+      default: 'bg-neutral-900',
+      dark: 'bg-neutral-900 font-gray-300',
+    }
+
     return (
       <>
+        <ToastContainer
+          toastClassName={(context) =>
+            contextClass[context?.type || 'default'] +
+            ' relative p-1 min-h-8 min-w-4 rounded-md justify-between overflow-hidden cursor-pointer'
+          }
+          bodyClassName={() =>
+            'flex items-center select-none text-sm font-white font-med block p-4'
+          }
+          position="top-right"
+          autoClose={3000}
+          draggable
+          stacked
+          closeButton={false}
+          closeOnClick
+          theme="dark"
+        />
+
         <Form
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           newTask={newTask}
           inputRef={this.inputRef}
         />
+
         <TaskList
           tasks={tasks}
           handleDelete={this.handleDelete}
           handleEdit={this.handleEdit}
           handleChecked={this.handleChecked}
+          handleCheckedAll={this.handleCheckedAll}
         />
       </>
     )
