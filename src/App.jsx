@@ -17,6 +17,18 @@ class App extends Component {
     index: -1,
   }
 
+  componentDidMount() {
+    const tasks = JSON.parse(localStorage.getItem('tasks'))
+
+    if (!tasks) return
+
+    if (tasks) {
+      this.setState({
+        tasks
+      })
+    }
+  }
+
   componentDidUpdate(_, prevState) {
     const { tasks } = this.state
 

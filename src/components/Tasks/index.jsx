@@ -2,8 +2,8 @@ import { FaXmark, FaPen, FaCircleInfo } from 'react-icons/fa6'
 
 const TaskList = (props) => {
   return (
-    <div className="flex flex-col h-96 mt-8">
-      <ul className="item-list flex flex-col bg-neutral-900 h-full overflow-auto rounded-t">
+    <div className="flex flex-col mt-8">
+      <ul className="item-list flex flex-col bg-neutral-900 h-[398px] overflow-auto rounded-t">
         {props.tasks.length === 0 ? (
           <div className="flex grow gap-2 justify-center items-center">
             <FaCircleInfo />
@@ -13,7 +13,7 @@ const TaskList = (props) => {
           props.tasks.map((task, index) => (
             <li
               key={index}
-              className="flex justify-between items-center p-4 transition ease-in duration-300 hover:bg-gray-100/5 border-b border-gray-100/5"
+              className="flex justify-between items-center p-4 transition ease-in hover:bg-gray-100/5 border-t border-gray-100/5 first:border-none"
             >
               <div className="flex gap-4 items-center grow">
                 <input
@@ -45,16 +45,16 @@ const TaskList = (props) => {
         )}
       </ul>
 
-      {/* <button
+      <button
         onClick={props.handleCheckedAll}
         className="self-end select-none outline-none p-2 bg-neutral-900 transition ease-in 300ms hover:bg-neutral-950 border-t border-gray-500/30 w-full rounded-b"
       >
         Complete All
-      </button> */}
+      </button>
 
-      <div className="flex select-none outline-none p-2 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
+      {/* <div className="flex select-none outline-none p-2 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
         <div className="">0 tasks</div>
-      </div>
+      </div> */}
     </div>
   )
 }
