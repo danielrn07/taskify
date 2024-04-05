@@ -14,7 +14,7 @@ const Form = (props) => {
         value={props.newTask}
         ref={props.inputRef}
         placeholder="New task"
-        className="h-10 px-2 w-full text-lg rounded-l outline-none"
+        className="h-10 px-2 w-full text-lg rounded-l outline-none select-none"
       />
       <button
         type="submit"

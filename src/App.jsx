@@ -17,6 +17,14 @@ class App extends Component {
     index: -1,
   }
 
+  componentDidUpdate(_, prevState) {
+    const { tasks } = this.state
+
+    if (tasks === prevState.tasks) return
+
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -27,15 +35,20 @@ class App extends Component {
     const taskExists = tasks.some((task) => task.text === newTask)
     const taskEmpty = newTask === ''
 
+    const taskExistsID = 'Task Exists'
     if (taskExists) {
       toast.error('Essa tarefa já existe.', {
         icon: <FaCircleInfo size={24} />,
+        toastId: taskExistsID,
       })
       return
     }
+
+    const taskEmptyId = 'Task Empty'
     if (taskEmpty) {
       toast.error('A tarefa não pode estar vazia.', {
         icon: <FaCircleInfo size={24} />,
+        toastId: taskEmptyId,
       })
       return
     }
@@ -64,7 +77,7 @@ class App extends Component {
 
     this.handleReset()
   }
-  
+
   handleDelete = (e, index) => {
     const { tasks } = this.state
     const updatedTasks = tasks.toSpliced(index, 1)

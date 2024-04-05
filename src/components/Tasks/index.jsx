@@ -13,7 +13,7 @@ const TaskList = (props) => {
           props.tasks.map((task, index) => (
             <li
               key={index}
-              className="flex justify-between items-center p-4 transition ease-in duration-300 hover:bg-gray-100/5"
+              className="flex justify-between items-center p-4 transition ease-in duration-300 hover:bg-gray-100/5 border-b border-gray-100/5"
             >
               <div className="flex gap-4 items-center grow">
                 <input
@@ -23,7 +23,7 @@ const TaskList = (props) => {
                   className="outline-none"
                 />
                 <div
-                  className={`first-letter:uppercase ${task.isChecked ? 'line-through' : ''}`}
+                  className={`${task.isChecked ? 'line-through text-stone-400' : ''}`}
                 >
                   {task.text}
                 </div>
@@ -45,12 +45,16 @@ const TaskList = (props) => {
         )}
       </ul>
 
-      <button
+      {/* <button
         onClick={props.handleCheckedAll}
         className="self-end select-none outline-none p-2 bg-neutral-900 transition ease-in 300ms hover:bg-neutral-950 border-t border-gray-500/30 w-full rounded-b"
       >
         Complete All
-      </button>
+      </button> */}
+
+      <div className="flex select-none outline-none p-2 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
+        <div className="">0 tasks</div>
+      </div>
     </div>
   )
 }

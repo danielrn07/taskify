@@ -72,7 +72,7 @@ body {
 }
 
 ::selection {
-  background-color: #e11d48;
+  background-color: #e11d48 !important;
   color: white;
 }
 
