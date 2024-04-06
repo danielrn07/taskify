@@ -43,18 +43,7 @@ const TaskList = (props) => {
             </li>
           ))
         )}
-      </ul>
-
-      <button
-        onClick={props.handleCheckedAll}
-        className="self-end select-none outline-none p-2 bg-neutral-900 transition ease-in 300ms hover:bg-neutral-950 border-t border-gray-500/30 w-full rounded-b"
-      >
-        Complete All
-      </button>
-
-      {/* <div className="flex select-none outline-none p-2 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
-        <div className="">0 tasks</div>
-      </div> */}
+      </ul>            
     </div>
   )
 }

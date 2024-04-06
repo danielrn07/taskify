@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Form from './components/Form'
 import TaskList from './components/Tasks'
+import TaskListOptionsBar from './components/TaskListOptionsBar'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaCircleInfo } from 'react-icons/fa6'
@@ -24,7 +25,7 @@ class App extends Component {
 
     if (tasks) {
       this.setState({
-        tasks
+        tasks,
       })
     }
   }
@@ -136,24 +137,9 @@ class App extends Component {
     })
   }
 
-  handleCheckedAll = () => {
-    const { tasks } = this.state
-
-    const checkedAll = tasks.map((task) => {
-      return {
-        text: task.text,
-        isChecked: true,
-      }
-    })
-
-    this.setState({
-      tasks: [...checkedAll],
-    })
-  }
-
   render() {
     const { newTask, tasks } = this.state
-
+    
     const contextClass = {
       success: 'bg-neutral-900',
       error: 'bg-neutral-900',
@@ -194,8 +180,8 @@ class App extends Component {
           handleDelete={this.handleDelete}
           handleEdit={this.handleEdit}
           handleChecked={this.handleChecked}
-          handleCheckedAll={this.handleCheckedAll}
         />
+        <TaskListOptionsBar tasks={tasks} />
       </>
     )
   }
