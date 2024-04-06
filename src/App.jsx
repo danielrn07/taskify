@@ -3,6 +3,7 @@ import './App.css'
 import Form from './components/Form'
 import TaskList from './components/Tasks'
 import TaskListOptionsBar from './components/TaskListOptionsBar'
+import Footer from './components/Footer'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaCircleInfo } from 'react-icons/fa6'
@@ -139,7 +140,7 @@ class App extends Component {
 
   render() {
     const { newTask, tasks } = this.state
-    
+
     const contextClass = {
       success: 'bg-neutral-900',
       error: 'bg-neutral-900',
@@ -182,6 +183,7 @@ class App extends Component {
           handleChecked={this.handleChecked}
         />
         <TaskListOptionsBar tasks={tasks} />
+        <Footer />
       </>
     )
   }

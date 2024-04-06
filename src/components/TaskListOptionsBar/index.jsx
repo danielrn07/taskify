@@ -7,7 +7,7 @@ const TaskListOptionsBar = (props) => {
       if (tasks[i].isChecked) complete++
     }
     return (
-    <div className="flex select-none outline-none py-2 px-3 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
+    <div className="flex justify-center select-none outline-none py-2 px-3 bg-neutral-900 border-t border-gray-500/30 w-full rounded-b">
         <div className="text-sm text-neutral-500">
             {complete} of {total} tasks
         </div>
