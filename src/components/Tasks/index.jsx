@@ -23,7 +23,7 @@ const TaskList = (props) => {
                   className="outline-none"
                 />
                 <div
-                  className={`${task.isChecked ? 'line-through text-stone-400' : ''}`}
+                  className={`${task.isChecked ? 'line-through text-neutral-500' : ''}`}
                 >
                   {task.text}
                 </div>

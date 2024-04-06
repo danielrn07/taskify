@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Form from './components/Form'
+import Header from './components/Header'
 import TaskList from './components/Tasks'
 import TaskListOptionsBar from './components/TaskListOptionsBar'
 import Footer from './components/Footer'
@@ -152,6 +153,7 @@ class App extends Component {
 
     return (
       <>
+        <Header />
         <ToastContainer
           toastClassName={(context) =>
             contextClass[context?.type || 'default'] +

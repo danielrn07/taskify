@@ -1,8 +1,9 @@
 const Footer = () => {
   return (
     <footer className="flex justify-center items-center absolute bottom-0 left-0 right-0 bg-neutral-900 py-2 px-4">
-      <div className="grow text-stone-400">
-        made by <a
+      <div className="grow text-stone-400 select-none">
+        made by{' '}
+        <a
           target="_blank"
           href="https://www.linkedin.com/in/danielrn07/"
           className="text-white select-none transition ease-in hover:text-rose-600"
@@ -14,7 +15,7 @@ const Footer = () => {
         <img
           src="/linkedin-icon.svg"
           alt="LinkedIn icon"
-          className="h-6 self-left"
+          className="h-6 self-left select-none"
         />
       </a>
     </footer>
